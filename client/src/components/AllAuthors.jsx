@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './style.css';
 import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router';
 
 const AllAuthors = (props) => {
     const [authors, setAuthors] = useState([]);
@@ -15,6 +16,17 @@ const AllAuthors = (props) => {
             .then(res => {
                 console.log(res.data.authors);
                 setAuthors(res.data.authors);
+            })
+            .catch(err => console.log(err))
+    }
+
+    const deleteAuthor = (deleteId) => {
+        console.log(deleteId)
+        axios.delete("http://localhost:8000/api/authors/delete/" + deleteId)
+            .then(res => {
+                console.log("Successfully deleted " + deleteId);
+                
+                setAuthors( authors.filter( (author) => author._id !== deleteId))
             })
             .catch(err => console.log(err))
     }
@@ -34,11 +46,13 @@ const AllAuthors = (props) => {
                         authors.map( (author, i) => {
                             return (
                                 <tbody key={author._id}>
-                                    <td>{author.name}</td>
-                                    <td>
-                                        <button>Edit</button> | 
-                                        <button>Delete</button>
-                                    </td>
+                                    <tr>
+                                        <td>{author.name}</td>
+                                        <td>
+                                            <button >Edit</button> | 
+                                            <button onClick={ () => deleteAuthor(author._id)}>Delete</button>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             )
                         })
