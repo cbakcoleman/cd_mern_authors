@@ -8,5 +8,8 @@ const DB = "cd_authors_db";
 app.use(cors());
 app.use(express.json(), express.urlencoded({extended: true}));
 
+// DATABASE CONNECTION LINK
+require("./config/mongoose.config")(DB);
+
 // START THE SERVER
 app.listen(PORT, () => console.log(`Server is up on port: ${PORT}`))
