@@ -10,6 +10,8 @@ app.use(express.json(), express.urlencoded({extended: true}));
 
 // DATABASE CONNECTION LINK
 require("./config/mongoose.config")(DB);
+// CONNECT THE ROUTES
+require("./routes/Author.routes")(app);
 
 // START THE SERVER
 app.listen(PORT, () => console.log(`Server is up on port: ${PORT}`))

@@ -8,7 +8,7 @@ module.exports = {
             .catch(err => res.json({ message: "Pobody's Nerfect!", error: err}));
     }, 
     // READ ONE
-    fineOneAuthor : (req, res) => {
+    findOneAuthor : (req, res) => {
         Author.findById(req.params.id)
             .then(oneAuthor => res.json({ message: "Success!", author: oneAuthor}))
             .catch(err => res.json({ message: "Pobody's Nerfect!", error: err}));
