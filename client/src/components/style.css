@@ -1,0 +1,10 @@
+table, th, td {
+    justify-content: center;
+    margin: 10px;
+    border: 2px solid black;
+    padding: 5px;
+    border-collapse: collapse;
+}
+.container {
+    display: inline-flex;
+}
