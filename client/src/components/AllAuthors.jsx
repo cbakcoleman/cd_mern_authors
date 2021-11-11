@@ -49,7 +49,7 @@ const AllAuthors = (props) => {
                                     <tr>
                                         <td>{author.name}</td>
                                         <td>
-                                            <button >Edit</button> | 
+                                            <button >Edit</button> &nbsp;
                                             <button onClick={ () => deleteAuthor(author._id)}>Delete</button>
                                         </td>
                                     </tr>
