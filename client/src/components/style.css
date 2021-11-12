@@ -8,3 +8,18 @@ table, th, td {
 .container {
     display: inline-flex;
 }
+.card {
+    border: 2px solid black;
+    width: 300px;
+    padding: 5px;
+    display: inline-flex;
+}
+.button {
+    width: 50px;
+    height: 20px;
+    padding: 2px;
+    text-align: center;
+    background-color: lightgray;
+    display: inline-block;
+    align-items: center;
+}

@@ -34,8 +34,9 @@ const AllAuthors = (props) => {
     return (
         <div>
             <p>
-                <Link to={"/"}>Add an author</Link>
+                <Link to={"/authors/new"}>Add an author</Link>
             </p>
+            <h4>Our favorite authors:</h4>
             <div className="container">
                 <table>
                     <thead>
@@ -49,7 +50,7 @@ const AllAuthors = (props) => {
                                     <tr>
                                         <td>{author.name}</td>
                                         <td>
-                                            <button >Edit</button> &nbsp;
+                                            <Link to={"/authors/update/" + author._id}><button>Edit</button></Link> &nbsp;
                                             <button onClick={ () => deleteAuthor(author._id)}>Delete</button>
                                         </td>
                                     </tr>

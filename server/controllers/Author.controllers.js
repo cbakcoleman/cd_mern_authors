@@ -17,13 +17,13 @@ module.exports = {
     createNewAuthor : (req, res) => {
         Author.create(req.body)
             .then(newAuthor => res.json({ message: "Success!", author: newAuthor }))
-            .catch(err => res.json({ message: "Pobody's Nerfect!", error: err}));
+            .catch(err => res.status(418).json(err));
     },
     // UPDATE
     updateAuthor : (req, res) => {
         Author.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
             .then(updatedAuthor => res.json({ message: "Success!", author: updatedAuthor }))
-            .catch(err => res.json({ message: "Pobody's Nerfect!", error: err }));
+            .catch(err => res.status(418).json(err));
     },
     // DESTROYYYYY
     deleteAuthor : (req, res) => {
